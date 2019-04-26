@@ -1,5 +1,6 @@
 {
   "name": "Reverse Flappy",
   "description": "Flappy Bird except you're the pipes.",
-  "keywords": ["flappy"]
+  "keywords": ["flappy"],
+  "main": "index.html"
 }
