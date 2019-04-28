@@ -1,5 +1,6 @@
 class World {
   constructor() {
+    this.background = new Background();
     this.bird = new Bird();
     this.pipes = [];
     this.oscillator = new GapOscillator(0.1);
@@ -22,8 +23,8 @@ class World {
 
   collide() {
     this.collision = false;
-    for(let pipe of this.pipes) {
-      if(this.bird.collides(pipe)) {
+    for (let pipe of this.pipes) {
+      if (this.bird.collides(pipe)) {
         this.collision = true;
         break;
       }
@@ -31,13 +32,14 @@ class World {
   }
 
   flapOrNot() {
-    if(this.birdAI.shouldFlap(this)) {
+    if (this.birdAI.shouldFlap(this)) {
       this.bird.flap();
     }
   }
 
   update() {
     this.collide();
+    this.background.update();
     this.bird.update();
     this.oscillator.update();
     this.updatePipes();
@@ -45,10 +47,10 @@ class World {
   }
 
   show() {
-    if(this.collision) {
+    if (this.collision) {
       background(217, 30, 24);
     } else {
-      background(218, 223, 225);
+      this.background.show();
     }
     this.bird.show();
     this.pipes.forEach(p => p.show());

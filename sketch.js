@@ -14,6 +14,9 @@ const sprites = {};
 
 function preload() {
   sprites['bird'] = loadImage('assets/bird.png');
+  sprites['sky'] = loadImage('assets/sky.png');
+  sprites['sky2'] = loadImage('assets/sky_2.png');
+  sprites['grass'] = loadImage('assets/grass.png');
 }
 
 function setup() {
@@ -34,7 +37,7 @@ function draw() {
 }
 
 function keyTyped() {
-  switch(key) {
+  switch (key) {
     case ' ':
       world.onAddPipe();
       break;
